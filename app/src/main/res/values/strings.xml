@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Blinst</string>
+    <string name="jammer">Jammer</string>
+    <string name="wrong">Wrong</string>
+    <string name="right">Right</string>
+    <string name="token">Session token</string>
+    <string name="join">Join session</string>
+    <string name="host">Host session</string>
+    <string name="name">Jammer name</string>
+</resources>
