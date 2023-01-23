@@ -2,85 +2,139 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cons_layout_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/user_name"
+        android:id="@+id/user_token"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/user_token_label"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/user_name_editor"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:ems="10"
+        android:hint="Blinster"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        app:layout_constraintEnd_toStartOf="@+id/user_name_validator"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/user_token_label"
+        app:layout_constraintTop_toBottomOf="@+id/user_name_label"
+        android:importantForAutofill="no" />
+
+    <Button
+        android:id="@+id/user_name_validator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Valider"
+        app:layout_constraintBottom_toBottomOf="@+id/user_name_editor"
+        app:layout_constraintEnd_toEndOf="@+id/user_token"
+        app:layout_constraintTop_toTopOf="@+id/user_name_editor" />
+
+    <TextView
+        android:id="@+id/user_name_label"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Saisissez votre nom d'utilisateur ou votre nom d'équipe."
+        app:layout_constraintEnd_toEndOf="@+id/user_name_editor"
+        app:layout_constraintStart_toStartOf="@+id/user_token_label"
+        app:layout_constraintTop_toBottomOf="@+id/user_name_view_label" />
+
+    <TextView
+        android:id="@+id/session_token_label"
+        android:layout_width="0dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="32dp"
+        android:text="Saisissez le code donné par l'hôte pour rejoindre une session !"
+        app:layout_constraintEnd_toEndOf="@+id/session_token"
+        app:layout_constraintStart_toStartOf="@+id/session_token"
+        app:layout_constraintTop_toBottomOf="@+id/user_name_editor" />
+
+    <EditText
+        android:id="@+id/session_token"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:ems="10"
+        android:hint="Code session"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        app:layout_constraintEnd_toStartOf="@+id/session_token_join"
+        app:layout_constraintStart_toStartOf="@+id/user_name_editor"
+        app:layout_constraintTop_toBottomOf="@+id/session_token_label"
+        android:importantForAutofill="no" />
+
+    <Button
+        android:id="@+id/session_token_join"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:text="Rejoindre"
+        app:layout_constraintBottom_toBottomOf="@+id/session_token"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/session_token" />
+
+    <TextView
+        android:id="@+id/session_host_label"
+        android:layout_width="0dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="32dp"
+        android:text="Vous pouvez également créer votre propre session de jeu, et inviter vos amis."
+        app:layout_constraintEnd_toEndOf="@+id/session_token_join"
+        app:layout_constraintStart_toStartOf="@+id/session_token"
+        app:layout_constraintTop_toBottomOf="@+id/session_token" />
+
+    <Button
+        android:id="@+id/session_host_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Créer une session"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/session_host_label" />
+
+    <TextView
+        android:id="@+id/user_token_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:text="TextView"
+        android:text="UserID"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/user_uuid"
+        android:id="@+id/user_name_view_label"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:text="TextView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/user_name"
-        app:layout_constraintTop_toTopOf="@+id/user_name" />
+        android:layout_marginTop="32dp"
+        android:text="Name"
+        app:layout_constraintEnd_toEndOf="@+id/user_token_label"
+        app:layout_constraintStart_toStartOf="@+id/user_token_label"
+        app:layout_constraintTop_toBottomOf="@+id/user_token_label" />
 
-    <EditText
-        android:id="@+id/editTextTextPersonName"
+    <TextView
+        android:id="@+id/user_name_view"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:ems="10"
-        android:hint="@string/token"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toStartOf="@+id/button"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/user_name"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2" />
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:text="@string/join"
-        app:layout_constraintBottom_toBottomOf="@+id/editTextTextPersonName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/editTextTextPersonName" />
+        app:layout_constraintStart_toStartOf="@+id/user_token"
+        app:layout_constraintTop_toTopOf="@+id/user_name_view_label" />
 
-    <EditText
-        android:id="@+id/editTextTextPersonName2"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:ems="10"
-        android:hint="@string/name"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toStartOf="@+id/button2"
-        app:layout_constraintStart_toStartOf="@+id/user_name"
-        app:layout_constraintTop_toBottomOf="@+id/user_name" />
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:text="Change"
-        app:layout_constraintBottom_toBottomOf="@+id/editTextTextPersonName2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/editTextTextPersonName2" />
-
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="@string/host"
-        app:layout_constraintEnd_toEndOf="@+id/button"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
 </androidx.constraintlayout.widget.ConstraintLayout>
