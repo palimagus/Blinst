@@ -1,4 +1,4 @@
-package com.palim.blinst;
+package com.palim.blinstapp;
 
 import org.junit.Test;
 

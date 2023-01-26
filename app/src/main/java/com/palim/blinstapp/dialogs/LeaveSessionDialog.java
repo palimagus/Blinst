@@ -1,15 +1,12 @@
-package com.palim.blinst.dialogs;
+package com.palim.blinstapp.dialogs;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.DialogFragment;
-
-import java.util.Objects;
 
 public class LeaveSessionDialog extends DialogFragment {
 

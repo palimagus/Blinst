@@ -1,4 +1,4 @@
-package com.palim.blinst;
+package com.palim.blinstapp;
 
 import android.content.Context;
 
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
     public void useAppContext() {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
-        assertEquals("com.palim.blinst", appContext.getPackageName());
+        assertEquals("com.palim.blinstapp", appContext.getPackageName());
     }
 }

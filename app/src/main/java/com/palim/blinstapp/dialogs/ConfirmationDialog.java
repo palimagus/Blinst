@@ -1,4 +1,4 @@
-package com.palim.blinst.dialogs;
+package com.palim.blinstapp.dialogs;
 
 import android.app.AlertDialog;
 import android.app.Dialog;

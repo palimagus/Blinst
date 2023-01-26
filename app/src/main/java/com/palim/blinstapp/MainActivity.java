@@ -1,4 +1,4 @@
-package com.palim.blinst;
+package com.palim.blinstapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,8 +7,11 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import com.palim.blinst.dialogs.ConfirmationDialog;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.palim.blinstapp.dialogs.ConfirmationDialog;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -25,6 +28,8 @@ public class MainActivity extends AppCompatActivity {
     Button user_name_validator;
     Button host_session;
 
+    private FirebaseAuth mAuth;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
         user_name_validator = findViewById(R.id.user_name_validator);
         host_session = findViewById(R.id.session_host_button);
 
+        mAuth = FirebaseAuth.getInstance();
         setupButtons();
     }
 
@@ -50,7 +56,22 @@ public class MainActivity extends AppCompatActivity {
         // If already set in local storage, get it.
         // Else if setup in db, get it.
         // Else set it to default.
+        setupAnonymousUser();
         updateUI();
+    }
+
+    private void setupAnonymousUser() {
+        mAuth.signInAnonymously().addOnCompleteListener(task -> {
+           if (task.isSuccessful()) {
+               FirebaseUser currentUser = mAuth.getCurrentUser();
+               assert currentUser != null;
+               updateUI(currentUser);
+
+           } else {
+               Toast.makeText(MainActivity.this, "Authentication failed.",
+                       Toast.LENGTH_SHORT).show();
+           }
+        });
     }
 
     private void setupButtons() {
@@ -77,5 +98,8 @@ public class MainActivity extends AppCompatActivity {
 
     private void updateUI() {
         user_name_view.setText(user_name);
+    }
+    private void updateUI(FirebaseUser user) {
+        user_token_view.setText(user.getUid());
     }
 }
