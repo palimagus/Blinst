@@ -1,5 +1,5 @@
 package com.palim.blinstapp.core;
 
 public enum SessionState {
-    INIT, PLAY, PAUSE, VOTE
+    PLAY, PAUSE, VOTE, NEXT, CONNECTED, DISCONNECTED
 }
